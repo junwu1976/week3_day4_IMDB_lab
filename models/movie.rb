@@ -44,9 +44,4 @@ class Movie
     return stars.map {|star| Star.new(star)}
   end
 
-  def remaing_budget
-    return @budget
-  end
-
-
 end
