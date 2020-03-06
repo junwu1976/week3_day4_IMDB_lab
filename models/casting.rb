@@ -25,12 +25,15 @@ class Casting
 # => movie1.update
     movie_found = Casting.get_movie_by_id(@movie_id)
     # binding.pry
-    if(movie_found.budget >= @fee)
-      movie_found.budget -= @fee
+
+    if(movie_found.budget.to_i >= @fee)
+      new_budget = movie_found.budget.to_i - @fee
+      movie_found.budget = new_budget.to_s
+      # movie_found.budget.to_i -= @fee
     else
       p "Sorry, out of budget"
     end
-    movie1.update
+    movie_found.update
   end
 
   def self.get_movie_by_id(id)
